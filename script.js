@@ -9,8 +9,11 @@ async function loadTab(tabName) {
         contentContainer.innerHTML = content;
     } catch (error) {
         contentContainer.innerHTML = `
-            <div class="text-red-500 font-semibold">
-                Error loading tab content: ${error.message}
+            <div class="text-center py-12">
+                <div class="inline-block p-4 bg-red-50 rounded-lg border border-red-200">
+                    <p class="text-red-600 font-semibold">Error loading tab content</p>
+                    <p class="text-red-500 text-sm mt-2">${error.message}</p>
+                </div>
             </div>
         `;
     }
@@ -20,13 +23,13 @@ async function loadTab(tabName) {
 function switchTab(tabName) {
     // Update active button styling
     document.querySelectorAll('.tab-button').forEach((button) => {
-        button.classList.remove('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
-        button.classList.add('text-gray-600');
+        button.classList.remove('active', 'text-palette-darkest', 'border-palette-dark');
+        button.classList.add('text-palette-medium', 'border-transparent');
     });
 
     const activeButton = document.querySelector(`[data-tab="${tabName}"]`);
-    activeButton.classList.add('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
-    activeButton.classList.remove('text-gray-600');
+    activeButton.classList.add('active', 'text-palette-darkest', 'border-palette-dark');
+    activeButton.classList.remove('text-palette-medium', 'border-transparent');
 
     // Load the tab content
     loadTab(tabName);
