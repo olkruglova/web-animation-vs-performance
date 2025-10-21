@@ -5,25 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Web Animation vs Performance</title>
         <link rel="stylesheet" href="output.css" />
-
-        <script src="script.js" defer></script>
     </head>
     <body class="bg-gradient-to-br from-palette-lightest to-white min-h-screen">
-        <!-- Header Section -->
         <header class="bg-gradient-palette shadow-lg">
             <div class="container mx-auto px-6 py-8">
-                <h1 class="text-4xl font-bold text-white tracking-tight">Web Animation vs Performance</h1>
-                <p class="text-palette-lightest mt-2 text-lg">Exploring the balance between beauty and speed</p>
+                <h1 class="text-4xl font-bold text-white tracking-tight">Web Animation VS Performance</h1>
             </div>
         </header>
 
-        <!-- Main Content -->
         <main class="container mx-auto px-6 py-12">
-            <!-- Tab Navigation with Modern Design -->
             <div
                 class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-palette-lightest/30"
             >
-                <!-- Tab Buttons -->
                 <div
                     class="flex border-b border-palette-lightest/20 bg-gradient-to-r from-white to-palette-lightest/10"
                 >
@@ -31,33 +24,13 @@
                         class="tab-button active flex-1 px-6 py-4 font-semibold text-palette-darkest border-b-4 border-palette-dark transition-all duration-300 hover:bg-palette-lightest/20"
                         data-tab="tab1"
                     >
-                        <span class="flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                                />
-                            </svg>
-                            Performance
-                        </span>
+                        <span class="flex items-center justify-center gap-2">JavaScript RAF</span>
                     </button>
                     <button
                         class="tab-button flex-1 px-6 py-4 font-semibold text-palette-medium border-b-4 border-transparent transition-all duration-300 hover:bg-palette-lightest/20 hover:text-palette-darkest"
                         data-tab="tab2"
                     >
-                        <span class="flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                                />
-                            </svg>
-                            Animation
-                        </span>
+                        <span class="flex items-center justify-center gap-2">Animation</span>
                     </button>
                     <button
                         class="tab-button flex-1 px-6 py-4 font-semibold text-palette-medium border-b-4 border-transparent transition-all duration-300 hover:bg-palette-lightest/20 hover:text-palette-darkest"
@@ -93,7 +66,6 @@
                     </button>
                 </div>
 
-                <!-- Tab Content Area -->
                 <div id="tab-content" class="p-8 min-h-[400px] bg-white">
                     <div class="flex items-center justify-center h-64">
                         <div class="text-center">
@@ -106,27 +78,7 @@
                 </div>
             </div>
 
-            <!-- Feature Cards Below Tabs -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                <div
-                    class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-palette-lightest/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-                >
-                    <div
-                        class="w-12 h-12 bg-gradient-to-br from-palette-light to-palette-medium rounded-lg flex items-center justify-center mb-4"
-                    >
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"
-                            />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-palette-darkest mb-2">Fast Loading</h3>
-                    <p class="text-palette-dark">Optimized for lightning-fast performance across all devices.</p>
-                </div>
-
                 <div
                     class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-palette-lightest/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
                 >
@@ -138,36 +90,16 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                             />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-palette-darkest mb-2">Smooth Animations</h3>
-                    <p class="text-palette-dark">Beautiful, fluid animations that enhance user experience.</p>
-                </div>
-
-                <div
-                    class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-palette-lightest/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-                >
-                    <div
-                        class="w-12 h-12 bg-gradient-to-br from-palette-dark to-palette-darkest rounded-lg flex items-center justify-center mb-4"
-                    >
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                            />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-palette-darkest mb-2">Best Practices</h3>
-                    <p class="text-palette-dark">Built with modern web standards and accessibility in mind.</p>
+                    <h3 class="text-xl font-bold text-palette-darkest mb-2">Metrics</h3>
+                    <p class="text-palette-dark">Optimized for lightning-fast performance across all devices.</p>
                 </div>
             </div>
         </main>
 
-        <!-- Footer -->
         <footer class="bg-gradient-palette mt-16">
             <div class="container mx-auto px-6 py-8 text-center text-white">
                 <p class="text-palette-lightest flex items-center justify-center gap-2 flex-wrap">
@@ -182,6 +114,10 @@
             </div>
         </footer>
 
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
+        <script src="tabs/tab1.js" defer></script>
+        <script src="tabs/tab2.js" defer></script>
+        <script src="tabs/tab3.js" defer></script>
+        <script src="tabs/tab4.js" defer></script>
     </body>
 </html>
