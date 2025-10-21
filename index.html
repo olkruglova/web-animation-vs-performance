@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Animation vs Performance</title>
+        <link rel="stylesheet" href="styles.css" />
+
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="container mx-auto p-6">
+            <div class="bg-white rounded-t-lg shadow-lg">
+                <div class="flex border-b">
+                    <button
+                        class="tab-button active px-6 py-3 font-semibold text-blue-600 border-b-2 border-blue-600"
+                        data-tab="tab1"
+                    >
+                        Tab 1
+                    </button>
+                    <button
+                        class="tab-button px-6 py-3 font-semibold text-gray-600 hover:text-blue-600"
+                        data-tab="tab2"
+                    >
+                        Tab 2
+                    </button>
+                    <button
+                        class="tab-button px-6 py-3 font-semibold text-gray-600 hover:text-blue-600"
+                        data-tab="tab3"
+                    >
+                        Tab 3
+                    </button>
+                    <button
+                        class="tab-button px-6 py-3 font-semibold text-gray-600 hover:text-blue-600"
+                        data-tab="tab4"
+                    >
+                        Tab 4
+                    </button>
+                </div>
+            </div>
+
+            <div id="tab-content" class="bg-white shadow-lg rounded-b-lg p-6">
+                <div class="text-center text-gray-500">Loading...</div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
