@@ -1,131 +1,50 @@
-<div class="p-8">
-    <div class="mb-8">
-        <h2 class="text-3xl font-bold text-palette-darkest mb-3">CSS Animations</h2>
-        <p class="text-palette-dark text-lg">
-            Using pure CSS keyframe animations - GPU accelerated and highly performant.
-        </p>
+<div class="px-8 pt-8 pb-0">
+    <div class="rounded-2xl p-8 mb-8" style="height: 330px; position: relative">
+        <div style="position: absolute; bottom: 5%; left: calc(50% - 50px); transform: translate(-50%, 0)">
+            <div id="ball" class="ball"></div>
+            <div id="ball-shadow" class="ball-shadow"></div>
+        </div>
     </div>
 
-    <!-- Animation Container -->
-    <div
-        class="bg-gradient-to-br from-palette-lightest to-white rounded-2xl p-8 shadow-inner border border-palette-light/20 mb-8"
-        style="height: 400px; position: relative; overflow: hidden"
-    >
-        <div id="css-ball" class="ball-css"></div>
-        <div class="ground"></div>
-    </div>
-
-    <!-- Controls -->
-    <div class="flex gap-4 justify-center">
+    <div class="flex gap-4 justify-center py-8 pb-0">
         <button
-            onclick="startCSSAnimation()"
-            class="px-6 py-3 bg-palette-dark text-white rounded-lg font-semibold hover:bg-palette-darkest transition-colors shadow-lg"
+            onclick="startTransitionAnimation()"
+            class="px-6 py-3 bg-palette-dark text-palette-dark rounded-lg font-semibold hover:bg-palette-darkest transition-colors shadow-lg"
         >
             Start Animation
         </button>
         <button
-            onclick="stopCSSAnimation()"
-            class="px-6 py-3 bg-palette-medium text-white rounded-lg font-semibold hover:bg-palette-dark transition-colors shadow-lg"
+            onclick="stopTransitionAnimation()"
+            class="px-6 py-3 bg-palette-medium text-palette-dark rounded-lg font-semibold hover:bg-palette-dark transition-colors shadow-lg"
         >
             Stop Animation
         </button>
     </div>
-
-    <!-- Info Card -->
-    <div class="mt-8 p-6 bg-palette-lightest/30 rounded-xl border border-palette-light/30">
-        <h3 class="font-bold text-palette-darkest mb-2 flex items-center gap-2">
-            <svg class="w-5 h-5 text-palette-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            Performance Characteristics:
-        </h3>
-        <ul class="list-disc list-inside text-palette-dark space-y-1">
-            <li>GPU accelerated (hardware acceleration)</li>
-            <li>Runs on compositor thread (no main thread blocking)</li>
-            <li>Best for simple, repeating animations</li>
-            <li>Lowest CPU usage</li>
-        </ul>
-    </div>
 </div>
 
 <style>
-    .ground {
+    .ball {
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle at 35% 35%, #e8cbe0, #a86487 50%, #704b5b);
+        border-radius: 50%;
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
-        height: 2px;
-        background: #977173;
+        z-index: 2;
+        transform: translateY(0) scaleX(1.2) scaleY(0.8);
     }
 
-    .ball-css {
-        width: 50px;
-        height: 50px;
-        background: radial-gradient(circle at 30% 30%, #e8cbe0, #a86487 45%, #704b5b);
+    .ball-shadow {
+        width: 100px;
+        height: 20px;
+        background: radial-gradient(ellipse, rgba(151, 113, 115, 0.6), transparent);
         border-radius: 50%;
         position: absolute;
-        bottom: 2px;
+        bottom: -10px;
         left: 0;
-        animation-play-state: paused;
-    }
-
-    .ball-css.animating {
-        animation: bounce-horizontal 4s linear infinite, bounce-vertical 4s ease-in infinite, spin 4s linear infinite;
-    }
-
-    @keyframes bounce-horizontal {
-        0% {
-            left: 0;
-        }
-        100% {
-            left: calc(100% - 50px);
-        }
-    }
-
-    @keyframes bounce-vertical {
-        0% {
-            bottom: 2px;
-            animation-timing-function: ease-out;
-        }
-        12.5% {
-            bottom: 300px;
-            animation-timing-function: ease-in;
-        }
-        25% {
-            bottom: 2px;
-            animation-timing-function: ease-out;
-        }
-        37.5% {
-            bottom: 200px;
-            animation-timing-function: ease-in;
-        }
-        50% {
-            bottom: 2px;
-            animation-timing-function: ease-out;
-        }
-        62.5% {
-            bottom: 120px;
-            animation-timing-function: ease-in;
-        }
-        75% {
-            bottom: 2px;
-            animation-timing-function: ease-out;
-        }
-        87.5% {
-            bottom: 50px;
-            animation-timing-function: ease-in;
-        }
-        100% {
-            bottom: 2px;
-        }
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(720deg);
-        }
+        z-index: 1;
+        transform: scale(1, 1);
+        opacity: 0.6;
     }
 </style>
