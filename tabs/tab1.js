@@ -1,8 +1,7 @@
 let animationId = null;
 let startTime = null;
-const ANIMATION_DURATION = 1300; // 1.3s in milliseconds
+const ANIMATION_DURATION = 1300;
 
-// Easing functions
 function easeOut(t) {
     return 1 - Math.pow(1 - t, 3);
 }

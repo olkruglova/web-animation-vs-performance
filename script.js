@@ -19,9 +19,7 @@ async function loadTab(tabName) {
     }
 }
 
-// Handle tab switching
 function switchTab(tabName) {
-    // Update active button styling
     document.querySelectorAll('.tab-button').forEach((button) => {
         button.classList.remove('active', 'text-palette-darkest', 'border-palette-dark');
         button.classList.add('text-palette-medium', 'border-transparent');
@@ -31,11 +29,9 @@ function switchTab(tabName) {
     activeButton.classList.add('active', 'text-palette-darkest', 'border-palette-dark');
     activeButton.classList.remove('text-palette-medium', 'border-transparent');
 
-    // Load the tab content
     loadTab(tabName);
 }
 
-// Add click event listeners to all tab buttons
 document.querySelectorAll('.tab-button').forEach((button) => {
     button.addEventListener('click', () => {
         const tabName = button.getAttribute('data-tab');
@@ -43,5 +39,4 @@ document.querySelectorAll('.tab-button').forEach((button) => {
     });
 });
 
-// Load the first tab by default
 switchTab('tab1');

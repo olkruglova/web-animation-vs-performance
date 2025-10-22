@@ -1,7 +1,5 @@
 function startCSSAnimation() {
     document.getElementById('ball').classList.add('animating');
-
-    console.log("document.getElementById('ball-shadow')", document.getElementById('ball-shadow'));
     document.getElementById('ball-shadow').classList.add('animating');
 }
 
