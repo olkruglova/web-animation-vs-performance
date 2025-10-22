@@ -1,11 +1,11 @@
 function startCSSAnimation() {
-    document.getElementById('css-ball').classList.add('animating');
+    document.getElementById('ball').classList.add('animating');
 
-    console.log("document.getElementById('css-shadow')", document.getElementById('css-shadow'));
-    document.getElementById('css-shadow').classList.add('animating');
+    console.log("document.getElementById('ball-shadow')", document.getElementById('ball-shadow'));
+    document.getElementById('ball-shadow').classList.add('animating');
 }
 
 function stopCSSAnimation() {
-    document.getElementById('css-ball').classList.remove('animating');
-    document.getElementById('css-shadow').classList.remove('animating');
+    document.getElementById('ball').classList.remove('animating');
+    document.getElementById('ball-shadow').classList.remove('animating');
 }
