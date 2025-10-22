@@ -1,105 +1,123 @@
-let transitionTimeouts = [];
-let isAnimating = false;
+let ballAnimation = null;
+let shadowAnimation = null;
 
-const keyframes = [
-    {
-        ball: { translateY: 0, scaleX: 1, scaleY: 1 },
-        shadow: { scale: 1, opacity: 0.6 },
-        duration: 0,
-        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    },
-    {
-        ball: { translateY: -20, scaleX: 1, scaleY: 1 },
-        shadow: { scale: 0.9, opacity: 0.5 },
-        duration: 130,
-        easing: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
-    },
-    {
-        ball: { translateY: -200, scaleX: 0.9, scaleY: 1.1 },
-        shadow: { scale: 0.4, opacity: 0.2 },
-        duration: 520,
-        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    },
-    {
-        ball: { translateY: -180, scaleX: 1, scaleY: 1 },
-        shadow: { scale: 0.5, opacity: 0.25 },
-        duration: 130,
-        easing: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
-    },
-    {
-        ball: { translateY: -20, scaleX: 1, scaleY: 1 },
-        shadow: { scale: 0.9, opacity: 0.5 },
-        duration: 325,
-        easing: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
-    },
-    {
-        ball: { translateY: 10, scaleX: 1.2, scaleY: 0.8 },
-        shadow: { scale: 1, opacity: 0.6 },
-        duration: 195,
-        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    },
-];
+function startWAAPIAnimation() {
+    if (ballAnimation && ballAnimation.playState === 'running') return;
 
-function applyTransition(element, properties, duration, easing) {
-    if (duration === 0) {
-        element.style.transition = 'none';
-    } else {
-        element.style.transition = `all ${duration}ms ${easing}`;
+    const ball = document.getElementById('ball');
+    const shadow = document.getElementById('ball-shadow');
+
+    const ballKeyframes = [
+        {
+            transform: 'translateY(0px) scaleX(1) scaleY(1)',
+            offset: 0,
+            easing: 'ease-out',
+        },
+        {
+            transform: 'translateY(-20px) scaleX(1) scaleY(1)',
+            offset: 0.1,
+            easing: 'ease-in',
+        },
+        {
+            transform: 'translateY(-200px) scaleX(0.9) scaleY(1.1)',
+            offset: 0.5,
+            easing: 'ease-out',
+        },
+        {
+            transform: 'translateY(-180px) scaleX(1) scaleY(1)',
+            offset: 0.6,
+            easing: 'ease-in',
+        },
+        {
+            transform: 'translateY(-20px) scaleX(1) scaleY(1)',
+            offset: 0.85,
+            easing: 'ease-in',
+        },
+        {
+            transform: 'translateY(10px) scaleX(1.2) scaleY(0.8)',
+            offset: 1,
+            easing: 'ease-out',
+        },
+    ];
+
+    const shadowKeyframes = [
+        {
+            transform: 'scale(1, 1)',
+            opacity: 0.6,
+            offset: 0,
+        },
+        {
+            transform: 'scale(0.9, 0.9)',
+            opacity: 0.5,
+            offset: 0.1,
+        },
+        {
+            transform: 'scale(0.4, 0.4)',
+            opacity: 0.2,
+            offset: 0.5,
+        },
+        {
+            transform: 'scale(0.5, 0.5)',
+            opacity: 0.25,
+            offset: 0.6,
+        },
+        {
+            transform: 'scale(0.9, 0.9)',
+            opacity: 0.5,
+            offset: 0.85,
+        },
+        {
+            transform: 'scale(1, 1)',
+            opacity: 0.6,
+            offset: 1,
+        },
+    ];
+
+    const animationOptions = {
+        duration: 1300,
+        iterations: Infinity,
+        easing: 'linear',
+    };
+
+    ballAnimation = ball.animate(ballKeyframes, animationOptions);
+    shadowAnimation = shadow.animate(shadowKeyframes, animationOptions);
+}
+
+function stopWAAPIAnimation() {
+    if (ballAnimation) {
+        ballAnimation.cancel();
+        ballAnimation = null;
     }
 
-    Object.keys(properties).forEach((prop) => {
-        element.style[prop] = properties[prop];
-    });
-}
-
-function animateKeyframe(index) {
-    if (!isAnimating) return;
+    if (shadowAnimation) {
+        shadowAnimation.cancel();
+        shadowAnimation = null;
+    }
 
     const ball = document.getElementById('ball');
     const shadow = document.getElementById('ball-shadow');
-    const keyframe = keyframes[index];
-
-    const ballTransform = `translateY(${keyframe.ball.translateY}px) scaleX(${keyframe.ball.scaleX}) scaleY(${keyframe.ball.scaleY})`;
-    applyTransition(ball, { transform: ballTransform }, keyframe.duration, keyframe.easing);
-
-    const shadowTransform = `scale(${keyframe.shadow.scale}, ${keyframe.shadow.scale})`;
-    applyTransition(
-        shadow,
-        {
-            transform: shadowTransform,
-            opacity: keyframe.shadow.opacity,
-        },
-        keyframe.duration,
-        keyframe.easing
-    );
-
-    const nextIndex = (index + 1) % keyframes.length;
-
-    console.log('nextIndex', nextIndex);
-    const timeout = setTimeout(() => animateKeyframe(nextIndex), keyframe.duration);
-    transitionTimeouts.push(timeout);
-}
-
-function startTransitionAnimation() {
-    if (isAnimating) return;
-
-    isAnimating = true;
-    animateKeyframe(0);
-}
-
-function stopTransitionAnimation() {
-    isAnimating = false;
-
-    transitionTimeouts.forEach((timeout) => clearTimeout(timeout));
-    transitionTimeouts = [];
-
-    const ball = document.getElementById('ball');
-    const shadow = document.getElementById('ball-shadow');
-
-    ball.style.transition = 'none';
-    shadow.style.transition = 'none';
 
     ball.style.transform = 'translateY(0) scaleX(1) scaleY(1)';
     shadow.style.transform = 'scale(1, 1)';
     shadow.style.opacity = '1';
+}
+
+function pauseWAAPIAnimation() {
+    if (ballAnimation) ballAnimation.pause();
+    if (shadowAnimation) shadowAnimation.pause();
+}
+
+function resumeWAAPIAnimation() {
+    if (ballAnimation) ballAnimation.play();
+    if (shadowAnimation) shadowAnimation.play();
+}
+
+function setAnimationSpeed(speed) {
+    if (ballAnimation) ballAnimation.playbackRate = speed;
+    if (shadowAnimation) shadowAnimation.playbackRate = speed;
+}
+
+function reverseWAAPIAnimation() {
+    if (ballAnimation) ballAnimation.reverse();
+    if (shadowAnimation) shadowAnimation.reverse();
 }

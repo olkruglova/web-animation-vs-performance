@@ -8,13 +8,13 @@
 
     <div class="flex gap-4 justify-center py-8 pb-0">
         <button
-            onclick="startTransitionAnimation()"
+            onclick="startWAAPIAnimation()"
             class="px-6 py-3 bg-palette-dark text-palette-dark rounded-lg font-semibold hover:bg-palette-darkest transition-colors shadow-lg"
         >
             Start Animation
         </button>
         <button
-            onclick="stopTransitionAnimation()"
+            onclick="stopWAAPIAnimation()"
             class="px-6 py-3 bg-palette-medium text-palette-dark rounded-lg font-semibold hover:bg-palette-dark transition-colors shadow-lg"
         >
             Stop Animation
@@ -32,7 +32,6 @@
         bottom: 0;
         left: 0;
         z-index: 2;
-        transform: translateY(0) scaleX(1.2) scaleY(0.8);
     }
 
     .ball-shadow {
@@ -44,7 +43,5 @@
         bottom: -10px;
         left: 0;
         z-index: 1;
-        transform: scale(1, 1);
-        opacity: 0.6;
     }
 </style>
