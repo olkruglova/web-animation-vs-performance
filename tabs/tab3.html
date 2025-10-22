@@ -1,7 +1,47 @@
-<div class="p-6 bg-white shadow-lg rounded-lg">
-    <h1 class="text-2xl font-bold text-red-500">Tab 4 - Contact!</h1>
-    <p class="mt-2 text-gray-700">This is your fourth tab content.</p>
-    <div class="mt-4 p-4 bg-red-50 rounded">
-        <p class="text-red-800">Contact information and forms.</p>
+<div class="px-8 pt-8 pb-0">
+    <div class="rounded-2xl p-8 mb-8" style="height: 330px; position: relative">
+        <div style="position: absolute; bottom: 5%; left: calc(50% - 50px); transform: translate(-50%, 0)">
+            <div id="ball" class="ball"></div>
+            <div id="ball-shadow" class="ball-shadow"></div>
+        </div>
+    </div>
+
+    <div class="flex gap-4 justify-center py-8 pb-0">
+        <button
+            onclick="startIntervalAnimation()"
+            class="px-6 py-3 bg-palette-dark text-palette-dark rounded-lg font-semibold hover:bg-palette-darkest transition-colors shadow-lg"
+        >
+            Start Animation
+        </button>
+        <button
+            onclick="stopIntervalAnimation()"
+            class="px-6 py-3 bg-palette-medium text-palette-dark rounded-lg font-semibold hover:bg-palette-dark transition-colors shadow-lg"
+        >
+            Stop Animation
+        </button>
     </div>
 </div>
+
+<style>
+    .ball {
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle at 35% 35%, #e8cbe0, #a86487 50%, #704b5b);
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .ball-shadow {
+        width: 100px;
+        height: 20px;
+        background: radial-gradient(ellipse, rgba(151, 113, 115, 0.6), transparent);
+        border-radius: 50%;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        z-index: 1;
+    }
+</style>
